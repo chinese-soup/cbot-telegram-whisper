@@ -1,5 +1,5 @@
 # cbot-telegram-whisper
-Simple bot that transcribes Telegram voice messages using OpenAI's 
+Quick and dirty bot that transcribes Telegram voice messages using OpenAI's 
 using CPU inference thanks to [whisper.cpp](https://github.com/ggerganov/whisper.cpp) 
 
 ## Built using: 
@@ -7,6 +7,11 @@ using CPU inference thanks to [whisper.cpp](https://github.com/ggerganov/whisper
 * [whisper.cpp Go bindings](https://github.com/ggerganov/whisper.cpp/tree/master/bindings/go/)
 * [u2takey's ffmpeg-go](https://github.com/u2takey/ffmpeg-go)
 * [grab](https://github.com/cavaliergopher/grab) 
+
+## TODO
+* refactor
+* possibly get rid of ffmpeg lib? 
+* fix error handling & generating
 
 ## How to build
 #### You can check out the example [Dockerfile](Dockerfile), but TL;DR:
@@ -35,6 +40,12 @@ Check out [whisper.cpp's](https://github.com/ggerganov/whisper.cpp) README for m
 export TELEGRAM_APITOKEN=<your bot token here>
 export MODELPATH=whisper.cpp/models/ggml-tiny.en.bin
 ```
+#### Make sure ffmpeg is in $PATH:
+```bash
+$ which ffmpeg
+/usr/bin/ffmpeg
+```
+If it isn't install a binary or compile and put it in path.
 
 #### And you're all set, run it:
 ```bash
