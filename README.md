@@ -1,5 +1,5 @@
 # cbot-telegram-whisper
-Quick and dirty bot that transcribes Telegram voice messages using OpenAI's 
+Quick and dirty bot (or more of a PoC) that transcribes Telegram voice messages using OpenAI's 
 using CPU inference thanks to [whisper.cpp](https://github.com/ggerganov/whisper.cpp) 
 
 ## Built using: 
