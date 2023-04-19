@@ -16,7 +16,7 @@ RUN git clone https://github.com/ggerganov/whisper.cpp.git && \
 
 FROM debian:bookworm-slim AS build-release-stage
 # TODO: Can't use distroless because of ffmpeg binary requirement, could use static build
-# Still, debian-slim is still slimmer than golang:1.19 image
+# TODO: Still, debian-slim is still a lot slimmer than golang:1.19 image
 
 COPY --from=build-stage /app/ /app/
 
