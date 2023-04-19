@@ -1,6 +1,5 @@
 # cbot-telegram-whisper
-Quick and dirty bot (or more of a PoC) that transcribes Telegram voice messages using OpenAI's 
-using CPU inference thanks to [whisper.cpp](https://github.com/ggerganov/whisper.cpp) 
+Quick and dirty bot (or more of a PoC) that transcribes Telegram voice messages using OpenAI's whisper models, using CPU inference thanks to [whisper.cpp](https://github.com/ggerganov/whisper.cpp) 
 
 ## Built using: 
 * [go-telegram-bot-api](https://pkg.go.dev/github.com/go-telegram-bot-api/telegram-bot-api/v5) 

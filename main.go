@@ -21,6 +21,7 @@ func main() {
 	}
 
 	whisperModel := GetModel()
+	defer whisperModel.Close()
 
 	bot.Debug = true
 	// Create a new UpdateConfig struct with an offset of 0. Offsets are used
