@@ -8,21 +8,22 @@ import (
 	"os"
 )
 
-func ProcessSamples(model whisper.Model, samples []float32) (finalText string) {
+func ProcessSamples(model whisper.Model, samples []float32) (finalText string, err error) {
 	// TODO: Fix err handling
 
 	// Process samples
 	context, err := model.NewContext()
 	if err != nil {
-		panic(err)
+		return finalText, err
 	}
 
 	if err := context.SetLanguage("auto"); err != nil {
 		log.Printf("failed to set language to auto-detect")
+		return finalText, err
 	}
 
 	if err := context.Process(samples, nil); err != nil {
-		panic(err)
+		return finalText, err
 	}
 
 	// Print out the results
@@ -36,7 +37,7 @@ func ProcessSamples(model whisper.Model, samples []float32) (finalText string) {
 		finalText += fmt.Sprintf(" %v", segment.Text)
 	}
 
-	return finalText
+	return finalText, err
 
 }
 

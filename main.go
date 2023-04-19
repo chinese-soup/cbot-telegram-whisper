@@ -38,13 +38,12 @@ func main() {
 
 	// Let's go through each update that we're getting from Telegram.
 	for update := range updates {
-		// Telegram can send many types of updates depending on what your Bot
-		// is up to. We only want to look at messages for now, so we can
-		// discard any other updates.
+		// Discard if not message.
 		if update.Message == nil {
 			continue
 		}
 
+		// Discard if not voice message.
 		if update.Message.Voice == nil {
 			continue
 		}
@@ -76,7 +75,12 @@ func main() {
 			log.Printf("Unfortunately this happened: %v", err)
 			continue
 		}
-		recognizedText := ProcessSamples(whisperModel, samples)
+
+		recognizedText, err := ProcessSamples(whisperModel, samples)
+		if err != nil {
+			log.Printf("Error while processing samples from wave file: %v", err)
+			continue
+		}
 
 		// Now that we know we've gotten a new message, we can construct a
 		// reply! We'll take the Chat ID and Text from the incoming message
