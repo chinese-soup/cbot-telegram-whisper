@@ -1,0 +1,11 @@
+version: '2'
+services:
+  telegram-cbot:
+    image: telegram-cbot:latest
+    container_name: telegram-cbot
+    restart: always
+    volumes:
+      - ./models:/app/models
+    environment:
+      TELEGRAM_APITOKEN: "${TELEGRAM_APITOKEN}"
+      MODELPATH: "${MODELPATH}"
